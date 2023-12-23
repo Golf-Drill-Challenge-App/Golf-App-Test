@@ -7,6 +7,9 @@ import {useWindowDimensions} from 'react-native';
 import * as scale from 'd3-scale';
 import * as shape from 'd3-shape';
 import {clampNumber} from "./Utility";
+import {TamaguiProvider} from "tamagui";
+import tamaguiConfig from "./tama.config";
+import {SelectDemoItem} from "./Select";
 
 const data = [-2,4,-3,-3,-8,9,-10,1,-6,4,-8,3,-3,6,10,-5,-8,-8,-5,4,5,-8,5,-7,-8,7,-7,8,1,1,6,10,-10,-8,2,2,-7,3,-3,10,9,0,-5,-8,-7,4,-6,2,-4,3,-7,8,7,-10,-9,2,-10,-8,-7,-4,-4,0,-4,-2,-8,-10,9,-5,-4,10,8,-6,-9,1,-7,-8,5,-7,9,-10,-5,-7,6,0,-3,6,-2,-6,5,-3,-1,6,-9,-1,10,6,-1,-5,-4,8]
 
@@ -17,6 +20,7 @@ export default function App() {
     const fill = 'rgb(134, 65, 244)'
     const [selected, setSelected] = useState(data.length - 1)
     const scrollViewRef = useRef();
+    const [selector1, setSelector1] = useState("1")
 
     const barWidth = 50
 
@@ -84,8 +88,15 @@ export default function App() {
     };
 
     return (
+        <TamaguiProvider config={tamaguiConfig}>
         <SafeAreaView>
             <Text>Open up App.js to start working on your app!asef</Text>
+            <SelectDemoItem items={[
+                {name: "2"},
+                {name: "3"},
+                {name: "4"},
+                {name: "5"},
+                {name: "10"}]} label={"Moving Avg Range"} val={movingAvgRange} setVal={setMovingAvgRange} />
             <View>
                 <YAxis
                     data={data}
@@ -166,7 +177,7 @@ export default function App() {
                     </View>
                 </ScrollView>
             </View>
-
+            <Text>Moving Avg Range: {movingAvgRange}</Text>
             <Text>Scroll Position: {scrollPosition}</Text>
             <Text>Last Clicked: {selected}</Text>
             <Text>Slice: {JSON.stringify(processedData[selected]["slice"])}</Text>
@@ -174,6 +185,7 @@ export default function App() {
             <Text>Moving Average: {processedData[selected]["movingAvg"]}</Text>
             <StatusBar style="auto"/>
         </SafeAreaView>
+        </TamaguiProvider>
     );
 }
 
