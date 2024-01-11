@@ -6,7 +6,7 @@ import {
   Text,
   PaperProvider,
 } from "react-native-paper";
-import MyComponent from "./components/MyComponent";
+import TextBox from "./components/TextBox";
 
 const theme = {
   ...DefaultTheme,
@@ -24,7 +24,7 @@ export default function App() {
     <PaperProvider theme={theme}>
       <SafeAreaView>
         <Text>Hello World</Text>
-        <MyComponent />
+        <TextBox />
       </SafeAreaView>
     </PaperProvider>
   );

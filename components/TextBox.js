@@ -1,7 +1,7 @@
 import * as React from "react";
 import { TextInput } from "react-native-paper";
 
-const MyComponent = () => {
+const TextBox = () => {
   const [text, setText] = React.useState("");
 
   return (
@@ -14,4 +14,4 @@ const MyComponent = () => {
   );
 };
 
-export default MyComponent;
+export default TextBox;
