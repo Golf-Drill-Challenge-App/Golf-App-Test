@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "20 Shot Challenge",
+    "description": "Incididunt nisi sit aliqua. Officia ullamco ad incididunt minim excepteur cillum velit ea adipisicing ipsum qui Lorem pariatur amet. Cillum ad elit laboris tempor ad.",
+    "specification": "50ft - 150ft",
+    "type": "app",
+    "inputs": {
+      "drive": true,
+      "side": true,
+      "strokes": false,
+      "reps": 20
+    }
+  },
+  {
+    "id": 2,
+    "name": "20 Shot Challenge",
+    "description": "Incididunt nisi sit aliqua. Officia ullamco ad incididunt minim excepteur cillum velit ea adipisicing ipsum qui Lorem pariatur amet. Cillum ad elit laboris tempor ad.",
+    "specification": "50ft - 150ft",
+    "type": "ott",
+    "inputs": {
+      "drive": true,
+      "side": true,
+      "strokes": false,
+      "reps": 20
+    }
+  },
+  {
+    "id": 3,
+    "name": "20 Shot Challenge",
+    "description": "Incididunt nisi sit aliqua. Officia ullamco ad incididunt minim excepteur cillum velit ea adipisicing ipsum qui Lorem pariatur amet. Cillum ad elit laboris tempor ad.",
+    "specification": "50ft - 150ft",
+    "type": "arg",
+    "inputs": {
+      "drive": true,
+      "side": true,
+      "strokes": false,
+      "reps": 20
+    }
+  },
+  {
+    "id": 4,
+    "name": "20 Shot Challenge",
+    "description": "Incididunt nisi sit aliqua. Officia ullamco ad incididunt minim excepteur cillum velit ea adipisicing ipsum qui Lorem pariatur amet. Cillum ad elit laboris tempor ad.",
+    "specification": "50ft - 150ft",
+    "type": "putt",
+    "inputs": {
+      "drive": true,
+      "side": true,
+      "strokes": false,
+      "reps": 20
+    }
+  },
+  {
+    "id": 5,
+    "name": "20 Shot Challenge",
+    "description": "Incididunt nisi sit aliqua. Officia ullamco ad incididunt minim excepteur cillum velit ea adipisicing ipsum qui Lorem pariatur amet. Cillum ad elit laboris tempor ad.",
+    "specification": "50ft - 150ft",
+    "type": "arg",
+    "inputs": {
+      "drive": true,
+      "side": true,
+      "strokes": false,
+      "reps": 20
+    }
+  }
+]

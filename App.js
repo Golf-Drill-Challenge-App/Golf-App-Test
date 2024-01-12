@@ -1,12 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
+import NativeSafeAreaView from "react-native-safe-area-context/src/specs/NativeSafeAreaView";
+import {NavigationContainer} from "@react-navigation/native";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 export default function App() {
+    const sortedDrills = drills.sort((a, b) => a.type.localeCompare(b.type));
+    let previousType = null;
+
+    const Stack = createNativeStackNavigator();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Drills" component={Drills} />
+            <Stack.Screen name="Drill" component={Drill} />
+          </Stack.Navigator>
+      </NavigationContainer>
   );
 }
 
