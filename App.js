@@ -26,9 +26,13 @@ export default function App() {
   return (
     <PaperProvider theme={theme}>
       <Appbar.Header>
-        <Appbar.BackAction onPress={() => {}} />
-        <Appbar.Content title="20 Shot Challenge" style={styles.title} />
-        <Appbar.Action icon="information-outline" onPress={() => {}} />
+        <Appbar.BackAction onPress={() => {}} color={"#F24E1E"} />
+        <Appbar.Content title="20 Shot Challenge" titleStyle={styles.title} />
+        <Appbar.Action
+          icon="information-outline"
+          onPress={() => {}}
+          color={"#F24E1E"}
+        />
       </Appbar.Header>
 
       <View>
