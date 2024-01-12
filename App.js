@@ -6,6 +6,7 @@ import {
   Text,
   PaperProvider,
   Appbar,
+  Icon,
 } from "react-native-paper";
 
 import TextBox from "./components/TextBox";
@@ -27,7 +28,6 @@ export default function App() {
       <Appbar.Header>
         <Appbar.BackAction onPress={() => {}} />
         <Appbar.Content title="20 Shot Challenge" style={styles.title} />
-        <Appbar.Action icon="calendar" onPress={() => {}} />
         <Appbar.Action icon="information-outline" onPress={() => {}} />
       </Appbar.Header>
 
@@ -38,7 +38,26 @@ export default function App() {
       </View>
 
       <View style={styles.container}>
-        <TextBox />
+        <View>
+          <Text>Target Distance</Text>
+          <Text>150 yd</Text>
+        </View>
+
+        <View>
+          <Text>
+            <Icon source="arrow-up" />
+            Carry Distance
+          </Text>
+          <TextBox />
+        </View>
+
+        <View>
+          <Text>
+            <Icon source="arrow-left-right" />
+            Target Distance
+          </Text>
+          <TextBox />
+        </View>
       </View>
     </PaperProvider>
   );
@@ -49,6 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     // height: "100%",
     alignItems: "center",
+    margin: "20px",
   },
   title: {
     fontSize: 20,
