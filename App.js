@@ -1,11 +1,13 @@
 import * as React from "react";
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, View, StyleSheet } from "react-native";
 import {
   MD3LightTheme as DefaultTheme,
   Text,
   PaperProvider,
+  Appbar,
 } from "react-native-paper";
+
 import TextBox from "./components/TextBox";
 
 const theme = {
@@ -22,10 +24,34 @@ const theme = {
 export default function App() {
   return (
     <PaperProvider theme={theme}>
-      <SafeAreaView>
-        <Text>Hello World</Text>
+      <Appbar.Header>
+        <Appbar.BackAction onPress={() => {}} />
+        <Appbar.Content title="20 Shot Challenge" style={styles.title} />
+        <Appbar.Action icon="calendar" onPress={() => {}} />
+        <Appbar.Action icon="information-outline" onPress={() => {}} />
+      </Appbar.Header>
+
+      <View>
+        <Text style={styles.title}>
+          Shot 1 <Text>/20</Text>
+        </Text>
+      </View>
+
+      <View style={styles.container}>
         <TextBox />
-      </SafeAreaView>
+      </View>
     </PaperProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // height: "100%",
+    alignItems: "center",
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+});
