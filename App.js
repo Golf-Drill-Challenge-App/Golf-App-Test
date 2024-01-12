@@ -38,25 +38,32 @@ export default function App() {
       </View>
 
       <View style={styles.container}>
-        <View>
+        <View style={styles.item}>
           <Text>Target Distance</Text>
           <Text>150 yd</Text>
         </View>
 
-        <View>
+        <View style={styles.item}>
           <Text>
             <Icon source="arrow-up" />
             Carry Distance
           </Text>
-          <TextBox />
+
+          <Text>
+            <TextBox /> yd
+          </Text>
         </View>
 
-        <View>
+        <View style={styles.item}>
           <Text>
             <Icon source="arrow-left-right" />
-            Target Distance
+            Side Landing
           </Text>
-          <TextBox />
+
+          <Text>
+            <TextBox />
+            ft
+          </Text>
         </View>
       </View>
     </PaperProvider>
@@ -68,10 +75,12 @@ const styles = StyleSheet.create({
     flex: 1,
     // height: "100%",
     alignItems: "center",
-    margin: "20px",
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
+  },
+  item: {
+    marginBottom: 20,
   },
 });
