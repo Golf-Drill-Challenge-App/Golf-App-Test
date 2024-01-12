@@ -9,6 +9,11 @@ const TextBox = () => {
       mode="outlined"
       label="Outlined input"
       placeholder="Type something"
+      value={text}
+      keyboardType="numeric"
+      returnKeyType="done"
+      editable={true}
+      onChangeText={(newText) => setText(newText)}
       right={<TextInput.Affix text="/100" />}
     />
   );
