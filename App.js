@@ -7,6 +7,7 @@ import {
   PaperProvider,
   Appbar,
   Icon,
+  Button,
 } from "react-native-paper";
 
 import TextBox from "./components/TextBox";
@@ -53,9 +54,10 @@ export default function App() {
             Carry Distance
           </Text>
 
-          <Text>
-            <TextBox /> yd
-          </Text>
+          <View style={styles.horizontalContainer}>
+            <TextBox />
+            <Text>yd </Text>
+          </View>
         </View>
 
         <View style={styles.item}>
@@ -64,11 +66,25 @@ export default function App() {
             Side Landing
           </Text>
 
-          <Text>
+          <View style={styles.horizontalContainer}>
             <TextBox />
-            ft
-          </Text>
+            <Text>ft </Text>
+          </View>
         </View>
+      </View>
+
+      <View style={styles.container}>
+        <Button
+          style={styles.button}
+          mode="contained-tonal"
+          onPress={() => console.log("Pressed Next Shot")}
+        >
+          Next Shot
+        </Button>
+
+        <Text onPress={() => console.log("Pressed View All Shots")}>
+          View all shots
+        </Text>
       </View>
     </PaperProvider>
   );
@@ -80,11 +96,20 @@ const styles = StyleSheet.create({
     // height: "100%",
     alignItems: "center",
   },
+  button: {
+    width: 200,
+    backgroundColor: "#F24E1E",
+    marginBottom: 20,
+  },
   title: {
     fontSize: 20,
     fontWeight: "bold",
   },
   item: {
     marginBottom: 20,
+  },
+  horizontalContainer: {
+    flexDirection: "row",
+    alignItems: "center",
   },
 });
