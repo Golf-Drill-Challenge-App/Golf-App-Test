@@ -1645,6 +1645,11 @@
     "@react-native-aria/utils" "^0.2.10"
     "@react-stately/checkbox" "^3.4.2"
 
+"@gluestack-ui/config@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.npmjs.org/@gluestack-ui/config/-/config-1.0.12.tgz"
+  integrity sha512-T8cGsRdWHMpt9iVxac/hxpdoqq0rq83t+b5tZik9cKy8LLljRpXgy4zTELHbBFvHnDJmjlFgzhFsZavU90hbSg==
+
 "@gluestack-ui/divider@0.1.8":
   version "0.1.8"
   resolved "https://registry.npmjs.org/@gluestack-ui/divider/-/divider-0.1.8.tgz"
@@ -1869,7 +1874,7 @@
     "@gluestack-ui/utils" "^0.1.12"
     "@react-native-aria/focus" "^0.2.9"
 
-"@gluestack-ui/themed@^1.0.35":
+"@gluestack-ui/themed@^1.0.35", "@gluestack-ui/themed@>=1.0.20":
   version "1.0.35"
   resolved "https://registry.npmjs.org/@gluestack-ui/themed/-/themed-1.0.35.tgz"
   integrity sha512-zozkKnuCOuAKBrArgzt703EHcbXYL5Y4S8irhPL9Vvu9bs9QywqXLZA8PkK9RNUIk8A62A2jIKEtFpVaMqjiUA==
