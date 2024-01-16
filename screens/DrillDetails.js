@@ -1,11 +1,10 @@
 import { View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import {
   Icon,
   Text,
   Box,
   Center,
-  Icon,
   Select,
   SelectTrigger,
   SelectInput,
@@ -16,11 +15,20 @@ import {
   SelectDragIndicatorWrapper,
   SelectDragIndicator,
   SelectItem,
+  ChevronDownIcon,
 } from "@gluestack-ui/themed";
 
 const DrillDetails = () => {
+  const [selected, setSelected] = useState("totalsg");
+  const [label, setLabel] = useState("Total SG");
+
+  const handleOptionChange = (value, label) => {
+    setSelected(value);
+    setLabel(label);
+  };
+
   return (
-    <Center>
+    <>
       {/* TITLE */}
       <Box>
         <Text>DrillDetails</Text>
@@ -29,30 +37,42 @@ const DrillDetails = () => {
       {/* TAB SYSTEM */}
 
       {/* DROP DOWN */}
-      <Select>
-        <SelectTrigger>
-          <SelectInput placeholder="Select option" />
-          <SelectIcon mr="$3">
-            <Icon as={ChevronDownIcon} />
-          </SelectIcon>
-        </SelectTrigger>
-        <SelectPortal>
-          <SelectBackdrop />
-          <SelectContent>
-            <SelectDragIndicatorWrapper>
-              <SelectDragIndicator />
-            </SelectDragIndicatorWrapper>
-            <SelectItem label="Red" value="red" />
-            <SelectItem label="Blue" value="blue" />
-            <SelectItem label="Black" value="black" />
-            <SelectItem label="Pink" value="pink" isDisabled={true} />
-            <SelectItem label="Green" value="green" />
-          </SelectContent>
-        </SelectPortal>
-      </Select>
+      <Box>
+        <Select>
+          <SelectTrigger>
+            <SelectInput placeholder="Select option" value={label} />
+            <SelectIcon mr="$3">
+              <Icon as={ChevronDownIcon} />
+            </SelectIcon>
+          </SelectTrigger>
+          <SelectPortal>
+            <SelectBackdrop />
+            <SelectContent>
+              <SelectDragIndicatorWrapper>
+                <SelectDragIndicator />
+              </SelectDragIndicatorWrapper>
+              <SelectItem
+                label="Total SG"
+                value="totalsg"
+                onSelect={() => handleOptionChange("totalsg", "Total SG")}
+              />
+              <SelectItem
+                label="Avg SG"
+                value="avgsg"
+                onSelect={() => handleOptionChange("avgsg", "Avg SG")}
+              />
+              <SelectItem
+                label="Hole Diff"
+                value="holediff"
+                onSelect={() => handleOptionChange("holediff", "Hole Diff")}
+              />
+            </SelectContent>
+          </SelectPortal>
+        </Select>
+      </Box>
 
       {/* LIST */}
-    </Center>
+    </>
   );
 };
 
