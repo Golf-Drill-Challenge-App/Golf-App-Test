@@ -9,13 +9,14 @@ import {
   Icon,
   Text,
   Box,
+  Center,
   Button,
   ButtonText,
 } from "@gluestack-ui/themed";
 
 export default function DrillSubmission() {
   return (
-    <Box justifyContent="center" alignItems="center">
+    <Center>
       {/* Title Box */}
       <Box justifyContent="center" alignItems="center">
         <Text>Target Distance</Text>
@@ -77,6 +78,6 @@ export default function DrillSubmission() {
 
         <Text> View all shots</Text>
       </Box>
-    </Box>
+    </Center>
   );
 }
