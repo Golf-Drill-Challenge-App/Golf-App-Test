@@ -7,6 +7,7 @@ import {
 } from "react-native-paper";
 
 import DrillSubmission from "./screens/DrillSubmission";
+import DrillDetails from "./screens/DrillDetails";
 
 const theme = {
   ...DefaultTheme,
@@ -22,7 +23,8 @@ const theme = {
 export default function App() {
   return (
     <PaperProvider theme={theme}>
-      <DrillSubmission />
+      {/* <DrillSubmission /> */}
+      <DrillDetails />
     </PaperProvider>
   );
 }
