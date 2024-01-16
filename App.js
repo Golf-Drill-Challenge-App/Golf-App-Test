@@ -3,12 +3,14 @@ import { StyleSheet, SafeAreaView, View } from "react-native";
 import { GluestackUIProvider, Text } from "@gluestack-ui/themed";
 import { config } from "@gluestack-ui/config";
 import DrillSubmission from "./screens/DrillSubmission";
+import DrillDetails from "./screens/DrillDetails";
 
 export default function App() {
   return (
     <GluestackUIProvider config={config}>
       <SafeAreaView>
-        <DrillSubmission />
+        {/* <DrillSubmission /> */}
+        <DrillDetails />
       </SafeAreaView>
     </GluestackUIProvider>
   );
