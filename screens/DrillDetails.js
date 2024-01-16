@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import {
   Text,
   Appbar,
@@ -8,9 +8,31 @@ import {
   Avatar,
   Icon,
 } from "react-native-paper";
+import DropDown from "react-native-paper-dropdown";
 
 const DrillDetails = () => {
-  const [value, setValue] = React.useState("leaderboard");
+  const [value, setValue] = useState("leaderboard");
+  const [showDropDown, setShowDropDown] = useState(false);
+  const [filter, setFilter] = useState("");
+
+  const filterList = [
+    {
+      label: "Total SG",
+      value: "totalSG",
+    },
+    {
+      label: "Avg SG",
+      value: "avgSG",
+    },
+    {
+      label: "Hole Diff",
+      value: "holeDiff",
+    },
+    {
+      label: "idk",
+      value: "idk",
+    },
+  ];
 
   return (
     <>
@@ -41,7 +63,16 @@ const DrillDetails = () => {
       />
 
       {/* Drop Down Menu */}
-      {/* can't add this right now, need to test option */}
+      <DropDown
+        label={"Filter"}
+        mode={"outlined"}
+        visible={showDropDown}
+        showDropDown={() => setShowDropDown(true)}
+        onDismiss={() => setShowDropDown(false)}
+        value={filter}
+        setValue={setFilter}
+        list={filterList}
+      />
 
       {/* List */}
       <List.Section>
