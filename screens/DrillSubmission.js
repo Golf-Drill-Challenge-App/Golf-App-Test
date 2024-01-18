@@ -7,7 +7,7 @@ import DrillInput from "../components/DrillInput";
 const InputData = {
   instruction: {
     description: "Target Distance",
-    distance: "150",
+    distance: "150", //this will need to be randomly generated at some point
     distanceMeasure: "yd",
   },
   inputs: [
