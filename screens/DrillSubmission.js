@@ -5,6 +5,11 @@ import DrillInput from "../components/DrillInput";
 
 // Test Data for inputs
 const InputData = {
+  instruction: {
+    description: "Target Distance",
+    distance: "150",
+    distanceMeasure: "yd",
+  },
   inputs: [
     {
       icon: "arrow-up",
@@ -39,11 +44,15 @@ const DrillSubmission = () => {
       </View>
 
       <View style={styles.container}>
-        {/* Static Instruction */}
+        {/* Instruction */}
         <View style={styles.item}>
-          <Text>Target Distance</Text>
-          <Text>150 yd</Text>
+          <Text>{InputData.instruction.description}</Text>
+          <Text>
+            {InputData.instruction.distance}{" "}
+            {InputData.instruction.distanceMeasure}
+          </Text>
         </View>
+
         {/* Inputs */}
         {InputData.inputs.map((item, id) => (
           <DrillInput
