@@ -2,6 +2,23 @@ import { View, StyleSheet } from "react-native";
 import React from "react";
 import { Text, Appbar, Icon, Button } from "react-native-paper";
 import TextBox from "../components/TextBox";
+import DrillInput from "../components/DrillInput";
+
+// Test Data for inputs
+const InputData = {
+  inputs: [
+    {
+      icon: "arrow-up",
+      prompt: "Carry Distance",
+      distanceMeasure: "yd",
+    },
+    {
+      icon: "arrow-left-right",
+      prompt: "Side Landing",
+      distanceMeasure: "ft",
+    },
+  ],
+};
 
 const DrillSubmission = () => {
   return (
@@ -23,34 +40,20 @@ const DrillSubmission = () => {
       </View>
 
       <View style={styles.container}>
+        {/* Static Instruction */}
         <View style={styles.item}>
           <Text>Target Distance</Text>
           <Text>150 yd</Text>
         </View>
-
-        <View style={styles.item}>
-          <Text>
-            <Icon source="arrow-up" />
-            Carry Distance
-          </Text>
-
-          <View style={styles.horizontalContainer}>
-            <TextBox />
-            <Text>yd </Text>
-          </View>
-        </View>
-
-        <View style={styles.item}>
-          <Text>
-            <Icon source="arrow-left-right" />
-            Side Landing
-          </Text>
-
-          <View style={styles.horizontalContainer}>
-            <TextBox />
-            <Text>ft </Text>
-          </View>
-        </View>
+        {/* Inputs */}
+        {InputData.inputs.map((item, id) => (
+          <DrillInput
+            key={id}
+            icon={item.icon}
+            prompt={item.prompt}
+            distanceMeasure={item.distanceMeasure}
+          />
+        ))}
       </View>
 
       <View style={styles.container}>
