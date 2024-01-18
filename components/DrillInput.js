@@ -3,13 +3,13 @@ import React from "react";
 import { Text, Icon } from "react-native-paper";
 import TextBox from "./TextBox";
 
-const InputData = {
-  icon: "arrow-up",
-  prompt: "Carry Distance",
-  distanceMeasure: "yd",
-};
-
-export default function DrillInput({ icon, prompt, distanceMeasure }) {
+export default function DrillInput({
+  icon,
+  prompt,
+  distanceMeasure,
+  inputValue,
+  onInputChange,
+}) {
   return (
     <View style={styles.item}>
       <Text>
@@ -18,7 +18,7 @@ export default function DrillInput({ icon, prompt, distanceMeasure }) {
       </Text>
 
       <View style={styles.horizontalContainer}>
-        <TextBox />
+        <TextBox value={inputValue} onChangeText={onInputChange} />
         <Text>{distanceMeasure}</Text>
       </View>
     </View>

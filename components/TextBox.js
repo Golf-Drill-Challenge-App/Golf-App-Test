@@ -1,18 +1,16 @@
 import React from "react";
 import { TextInput } from "react-native-paper";
 
-const TextBox = () => {
-  const [text, setText] = React.useState("");
-
+const TextBox = ({ value, onChangeText }) => {
   return (
     <TextInput
       mode="outlined"
       placeholder="Type something"
-      value={text}
+      value={value}
       keyboardType="numeric"
       returnKeyType="done"
       editable={true}
-      onChangeText={(newText) => setText(newText)}
+      onChangeText={onChangeText}
     />
   );
 };

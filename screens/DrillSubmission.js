@@ -25,6 +25,8 @@ const InputData = {
 };
 
 const DrillSubmission = () => {
+  const [inputValues, setInputValues] = React.useState([]);
+
   return (
     <>
       <Appbar.Header>
@@ -60,6 +62,12 @@ const DrillSubmission = () => {
             icon={item.icon}
             prompt={item.prompt}
             distanceMeasure={item.distanceMeasure}
+            inputValue={inputValues[id]}
+            onInputChange={(newText) => {
+              const updatedValues = [...inputValues];
+              updatedValues[id] = newText;
+              setInputValues(updatedValues);
+            }}
           />
         ))}
       </View>
@@ -68,7 +76,11 @@ const DrillSubmission = () => {
         <Button
           style={styles.button}
           mode="contained-tonal"
-          onPress={() => console.log("Pressed Next Shot")}
+          onPress={() => {
+            console.log("Pressed Next Shot");
+            console.log("InputValue[0]: ", inputValues[0]);
+            console.log("InputValue[1]: ", inputValues[1]);
+          }}
         >
           Next Shot
         </Button>
