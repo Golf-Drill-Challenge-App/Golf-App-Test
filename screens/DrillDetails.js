@@ -11,6 +11,7 @@ import {
 import DropDown from "react-native-paper-dropdown";
 import {ApplicationProvider, IndexPath, Select, SelectItem} from "@ui-kitten/components";
 import * as eva from "@eva-design/eva";
+import DropDownPicker from 'react-native-dropdown-picker'; //https://hossein-zare.github.io/react-native-dropdown-picker-website/
 
 const DrillDetails = () => {
   const [value, setValue] = useState("leaderboard");
@@ -25,7 +26,10 @@ const DrillDetails = () => {
 
     const [selectedIndex, setSelectedIndex] = React.useState(new IndexPath(0));
 
-    const filterList = [
+
+    const [open, setOpen] = useState(false);
+
+    const [filterList, setFilterList] = useState([
     {
       label: "Total SG",
       value: "totalSG",
@@ -42,7 +46,7 @@ const DrillDetails = () => {
       label: "idk",
       value: "idk",
     },
-  ];
+  ]);
 
   return (
     <ApplicationProvider {...eva} theme={eva.light}>
@@ -91,6 +95,15 @@ const DrillDetails = () => {
         <SelectItem title='Option 2' />
         <SelectItem title='Option 3' />
     </Select>
+
+        <DropDownPicker
+            open={open}
+            value={value}
+            items={filterList}
+            setOpen={setOpen}
+            setValue={setValue}
+            setItems={setFilterList}
+        />
 
       {/* List */}
       <List.Section>
