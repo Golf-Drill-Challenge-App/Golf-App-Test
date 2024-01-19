@@ -9,13 +9,23 @@ import {
   Icon,
 } from "react-native-paper";
 import DropDown from "react-native-paper-dropdown";
+import {ApplicationProvider, IndexPath, Select, SelectItem} from "@ui-kitten/components";
+import * as eva from "@eva-design/eva";
 
 const DrillDetails = () => {
   const [value, setValue] = useState("leaderboard");
   const [showDropDown, setShowDropDown] = useState(false);
   const [filter, setFilter] = useState("");
 
-  const filterList = [
+  const [filterVal, setFilterVal] = useState(
+      {
+          label: "Total SG",
+          value: "totalSG",
+      })
+
+    const [selectedIndex, setSelectedIndex] = React.useState(new IndexPath(0));
+
+    const filterList = [
     {
       label: "Total SG",
       value: "totalSG",
@@ -35,7 +45,7 @@ const DrillDetails = () => {
   ];
 
   return (
-    <>
+    <ApplicationProvider {...eva} theme={eva.light}>
       <Appbar.Header>
         <Appbar.BackAction onPress={() => {}} color={"#F24E1E"} />
       </Appbar.Header>
@@ -73,6 +83,14 @@ const DrillDetails = () => {
         setValue={setFilter}
         list={filterList}
       />
+        <Select
+        selectedIndex={selectedIndex}
+        onSelect={index => setSelectedIndex(index)}
+    >
+        <SelectItem title='Option 1' />
+        <SelectItem title='Option 2' />
+        <SelectItem title='Option 3' />
+    </Select>
 
       {/* List */}
       <List.Section>
@@ -97,7 +115,7 @@ const DrillDetails = () => {
           )}
         />
       </List.Section>
-    </>
+    </ApplicationProvider>
   );
 };
 
