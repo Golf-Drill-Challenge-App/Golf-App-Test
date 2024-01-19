@@ -9,8 +9,20 @@ import {
   Icon,
 } from "react-native-paper";
 
+import DrillLeaderboard from "../components/DrillLeaderboard"
+import DrillDescription from "../components/DrillDescription"
+
 const DrillDetails = () => {
   const [value, setValue] = React.useState("leaderboard");
+
+  const tabComponent = () => {
+    if (value == "leaderboard") {
+        return <DrillLeaderboard />
+    }
+    else {
+        return <DrillDescription />
+    }
+  }
 
   return (
     <>
@@ -38,34 +50,15 @@ const DrillDetails = () => {
             label: "Leaderboard",
           },
         ]}
+
       />
+
+      { tabComponent() }
 
       {/* Drop Down Menu */}
       {/* can't add this right now, need to test option */}
 
-      {/* List */}
-      <List.Section>
-        <List.Item
-          title="Frank Nguyen"
-          left={() => <Avatar.Text size={24} label="XD" />}
-          right={() => (
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text>8 ft</Text>
-              <Icon source="chevron-right" />
-            </View>
-          )}
-        />
-        <List.Item
-          title="Frank Nguyen"
-          left={() => <Avatar.Text size={24} label="XD" />}
-          right={() => (
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text>8 ft</Text>
-              <Icon source="chevron-right" />
-            </View>
-          )}
-        />
-      </List.Section>
+      
     </>
   );
 };
