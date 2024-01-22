@@ -16,32 +16,6 @@ const DrillExample = {
 export function DrillGenerator() {
   let InputData = {};
 
-  //find inputInstruction details
-
-  let inputInstruction = {
-    description: "Target Distance",
-    distanceMeasure: "yd",
-  };
-
-  console.log(inputInstruction);
-
-  //find inputDescriptors
-
-  let inputDescriptors = [
-    {
-      icon: "arrow-up",
-      prompt: "Carry Distance",
-      distanceMeasure: "yd",
-    },
-    {
-      icon: "arrow-left-right",
-      prompt: "Side Landing",
-      distanceMeasure: "ft",
-    },
-  ];
-
-  console.log(inputDescriptors);
-
   //generate shotAttempts
 
   let shotAttempts = [];
@@ -49,25 +23,43 @@ export function DrillGenerator() {
   for (let index = 0; index < DrillExample.inputs.reps; index++) {
     let newAttempt = {
       shotNum: index + 1,
-      target: Math.floor(Math.random() * (150 - 50 + 1)) + 50, //generates a random num 50-150
-      distance: null, //user generated
-      sideLanding: null, //user generated
+      target: [
+        {
+          description: "Target Distance",
+          distanceMeasure: "yd",
+          value: Math.floor(Math.random() * (150 - 50 + 1)) + 50, //generates a random num 50-150, //this will need to be randomly generated
+        },
+      ],
+      inputs: [
+        {
+          id: "distance",
+          icon: "arrow-up",
+          prompt: "Carry Distance",
+          distanceMeasure: "yd",
+          value: null, //user generated
+        },
+        {
+          id: "sideLanding",
+          icon: "arrow-left-right",
+          prompt: "Side Landing",
+          distanceMeasure: "ft",
+          value: null, //user generated
+        },
+      ],
     };
 
     shotAttempts[index] = newAttempt;
   }
 
-  console.log(shotAttempts);
+  //LOG TESTING FOR THE WIN
 
-  //combine all into one
+  console.log(shotAttempts); //entire object
 
-  InputData = {
-    inputInstruction,
-    inputDescriptors,
-    shotAttempts,
-  };
+  console.log(shotAttempts[0].target[0]); //target array
 
-  console.log(InputData);
+  console.log(shotAttempts[0].target[0].value); //target.value
+
+  console.log(shotAttempts[0].inputs); //inputs array
 
   return InputData;
 }

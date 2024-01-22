@@ -139,8 +139,8 @@ const InputDataDraft1 = {
   ],
 };
 
-//Below is an output of version 1 of the Drill Genera
-const OuputDataDraft2 = {
+//Below is an output of version 1 of the Drill Generation
+const OuputDataDraft1 = {
   inputDescriptors: [
     { distanceMeasure: "yd", icon: "arrow-up", prompt: "Carry Distance" }, //hard coded
     { distanceMeasure: "ft", icon: "arrow-left-right", prompt: "Side Landing" }, //hard coded
@@ -200,3 +200,6 @@ const InputDataDraft2 = {
     },
   ],
 };
+
+//Below is an output of version 2 of the Drill Generation
+// [{"inputs": [[Object], [Object]], "shotNum": 1, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 2, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 3, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 4, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 5, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 6, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 7, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 8, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 9, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 10, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 11, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 12, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 13, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 14, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 15, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 16, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 17, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 18, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 19, "target": [[Object]]}, {"inputs": [[Object], [Object]], "shotNum": 20, "target": [[Object]]}]
