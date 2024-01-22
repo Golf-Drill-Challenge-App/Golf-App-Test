@@ -1,5 +1,5 @@
 import { View, StyleSheet } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Text, Appbar, Icon, Button } from "react-native-paper";
 import DrillInput from "../components/DrillInput";
 import DrillInputDescription from "../components/DrillInputDescription";
@@ -59,12 +59,77 @@ const InputData = {
         },
       ],
     },
+    {
+      shotNum: 3,
+      target: [
+        {
+          description: "Target Distance",
+          distanceMeasure: "yd",
+          value: 144, //this will need to be randomly generated
+        },
+      ],
+      inputs: [
+        {
+          id: "distance",
+          icon: "arrow-up",
+          prompt: "Carry Distance",
+          distanceMeasure: "yd",
+          value: null, //user generated
+        },
+        {
+          id: "sideLanding",
+          icon: "arrow-left-right",
+          prompt: "Side Landing",
+          distanceMeasure: "ft",
+          value: null, //user generated
+        },
+      ],
+    },
+    {
+      shotNum: 4,
+      target: [
+        {
+          description: "Target Distance",
+          distanceMeasure: "yd",
+          value: 134, //this will need to be randomly generated
+        },
+      ],
+      inputs: [
+        {
+          id: "distance",
+          icon: "arrow-up",
+          prompt: "Carry Distance",
+          distanceMeasure: "yd",
+          value: null, //user generated
+        },
+        {
+          id: "sideLanding",
+          icon: "arrow-left-right",
+          prompt: "Side Landing",
+          distanceMeasure: "ft",
+          value: null, //user generated
+        },
+      ],
+    },
   ],
 };
 
 const DrillSubmission = () => {
-  const [inputValues, setInputValues] = React.useState([]);
-  const [attemptIndex, setAttemptIndex] = React.useState(0);
+  const [inputValues, setInputValues] = useState(
+    Array.from({ length: InputData.attempts.length }, () => ({}))
+  );
+  const [attemptIndex, setAttemptIndex] = useState(0);
+
+  const handleInputChange = (id, newText) => {
+    setInputValues((prevValues) => {
+      const updatedValues = [...prevValues];
+      updatedValues[attemptIndex] = {
+        ...updatedValues[attemptIndex],
+        [id]: newText,
+      };
+      return updatedValues;
+    });
+  };
 
   return (
     <>
@@ -103,11 +168,9 @@ const DrillSubmission = () => {
             icon={item.icon}
             prompt={item.prompt}
             distanceMeasure={item.distanceMeasure}
-            inputValue={inputValues[id]}
+            inputValue={inputValues[attemptIndex]?.[item.id] || ""}
             onInputChange={(newText) => {
-              const updatedValues = [...inputValues];
-              updatedValues[id] = newText;
-              setInputValues(updatedValues);
+              handleInputChange(item.id, newText);
             }}
           />
         ))}
@@ -119,8 +182,10 @@ const DrillSubmission = () => {
           mode="contained-tonal"
           onPress={() => {
             console.log("Pressed Next Shot");
-            console.log("InputValue[0]: ", inputValues[0]);
-            console.log("InputValue[1]: ", inputValues[1]);
+            for (let i = 0; i < InputData.attempts.length; i++) {
+              console.log("InputValue[", i, "]: ", inputValues[i]);
+            }
+            console.log(inputValues);
           }}
         >
           Next Shot
