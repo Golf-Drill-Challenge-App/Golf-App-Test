@@ -2,30 +2,69 @@ import { View, StyleSheet } from "react-native";
 import React from "react";
 import { Text, Appbar, Icon, Button } from "react-native-paper";
 import DrillInput from "../components/DrillInput";
+import DrillInputDescription from "../components/DrillInputDescription";
 
 // Test Data for inputs
 const InputData = {
-  instruction: {
-    description: "Target Distance",
-    distance: "150", //this will need to be randomly generated at some point
-    distanceMeasure: "yd",
-  },
-  inputs: [
+  attempts: [
     {
-      icon: "arrow-up",
-      prompt: "Carry Distance",
-      distanceMeasure: "yd",
+      shotNum: 1,
+      target: [
+        {
+          description: "Target Distance",
+          distanceMeasure: "yd",
+          value: 150, //this will need to be randomly generated
+        },
+      ],
+      inputs: [
+        {
+          id: "distance",
+          icon: "arrow-up",
+          prompt: "Carry Distance",
+          distanceMeasure: "yd",
+          value: null, //user generated
+        },
+        {
+          id: "sideLanding",
+          icon: "arrow-left-right",
+          prompt: "Side Landing",
+          distanceMeasure: "ft",
+          value: null, //user generated
+        },
+      ],
     },
     {
-      icon: "arrow-left-right",
-      prompt: "Side Landing",
-      distanceMeasure: "ft",
+      shotNum: 2,
+      target: [
+        {
+          description: "Target Distance",
+          distanceMeasure: "yd",
+          value: 69, //this will need to be randomly generated
+        },
+      ],
+      inputs: [
+        {
+          id: "distance",
+          icon: "arrow-up",
+          prompt: "Carry Distance",
+          distanceMeasure: "yd",
+          value: null, //user generated
+        },
+        {
+          id: "sideLanding",
+          icon: "arrow-left-right",
+          prompt: "Side Landing",
+          distanceMeasure: "ft",
+          value: null, //user generated
+        },
+      ],
     },
   ],
 };
 
 const DrillSubmission = () => {
   const [inputValues, setInputValues] = React.useState([]);
+  const [attemptIndex, setAttemptIndex] = React.useState(0);
 
   return (
     <>
@@ -41,22 +80,24 @@ const DrillSubmission = () => {
 
       <View>
         <Text style={styles.title}>
-          Shot 1 <Text>/20</Text>
+          Shot {InputData.attempts[attemptIndex].shotNum}{" "}
+          <Text>/{InputData.attempts.length}</Text>
         </Text>
       </View>
 
       <View style={styles.container}>
         {/* Instruction */}
-        <View style={styles.item}>
-          <Text>{InputData.instruction.description}</Text>
-          <Text>
-            {InputData.instruction.distance}{" "}
-            {InputData.instruction.distanceMeasure}
-          </Text>
-        </View>
+        {InputData.attempts[attemptIndex].target.map((item, id) => (
+          <DrillInputDescription
+            key={id}
+            description={item.description}
+            distanceMeasure={item.distanceMeasure}
+            value={item.value}
+          />
+        ))}
 
         {/* Inputs */}
-        {InputData.inputs.map((item, id) => (
+        {InputData.attempts[attemptIndex].inputs.map((item, id) => (
           <DrillInput
             key={id}
             icon={item.icon}
@@ -88,6 +129,27 @@ const DrillSubmission = () => {
         <Text onPress={() => console.log("Pressed View All Shots")}>
           View all shots
         </Text>
+      </View>
+
+      <View style={styles.container}>
+        <Button
+          style={styles.button}
+          mode="contained-tonal"
+          onPress={() => {
+            setAttemptIndex(attemptIndex + 1);
+          }}
+        >
+          Increase Shot index
+        </Button>
+        <Button
+          style={styles.button}
+          mode="contained-tonal"
+          onPress={() => {
+            setAttemptIndex(attemptIndex - 1);
+          }}
+        >
+          Decrease Shot index
+        </Button>
       </View>
     </>
   );
