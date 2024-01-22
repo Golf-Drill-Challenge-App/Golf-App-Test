@@ -9,20 +9,19 @@ import {
   Icon,
 } from "react-native-paper";
 
-import DrillLeaderboard from "../components/DrillLeaderboard"
-import DrillDescription from "../components/DrillDescription"
+import DrillLeaderboard from "../components/DrillLeaderboard";
+import DrillDescription from "../components/DrillDescription";
 
 const DrillDetails = () => {
   const [value, setValue] = React.useState("leaderboard");
 
   const tabComponent = () => {
     if (value == "leaderboard") {
-        return <DrillLeaderboard />
+      return <DrillLeaderboard />;
+    } else {
+      return <DrillDescription />;
     }
-    else {
-        return <DrillDescription />
-    }
-  }
+  };
 
   return (
     <>
@@ -50,15 +49,12 @@ const DrillDetails = () => {
             label: "Leaderboard",
           },
         ]}
-
       />
 
-      { tabComponent() }
+      {tabComponent()}
 
       {/* Drop Down Menu */}
       {/* can't add this right now, need to test option */}
-
-      
     </>
   );
 };
