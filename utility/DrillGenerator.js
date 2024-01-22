@@ -61,5 +61,9 @@ export function DrillGenerator() {
 
   console.log(shotAttempts[0].inputs); //inputs array
 
+  InputData = {
+    attempts: shotAttempts,
+  };
+
   return InputData;
 }
