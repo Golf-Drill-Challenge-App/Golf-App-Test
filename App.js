@@ -1,7 +1,8 @@
 import { useCallback } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import { Text } from "react-native-paper";
 
 SplashScreen.preventAutoHideAsync();
 
